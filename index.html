@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Recalled App herunterladen — Vintage &amp; Reseller Mode." />
+    <title>Recalled — App herunterladen</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <script src="config.js" defer></script>
+  </head>
+  <body>
+    <main class="page">
+      <div class="card">
+        <p class="brand">Recalled</p>
+        <h1>App herunterladen</h1>
+        <p class="lead">
+          Vintage, Reseller und mehr — direkt in der Recalled App shoppen.
+        </p>
+
+        <div class="store-buttons" id="store-buttons">
+          <a id="app-store-link" class="store-btn store-btn-apple" href="#" hidden>
+            <span class="store-btn-label">Laden im</span>
+            <span class="store-btn-name">App Store</span>
+          </a>
+          <a id="play-store-link" class="store-btn store-btn-google" href="#" hidden>
+            <span class="store-btn-label">Jetzt bei</span>
+            <span class="store-btn-name">Google Play</span>
+          </a>
+        </div>
+
+        <p class="hint" id="setup-hint" hidden>
+          App-Links fehlen noch — in <code>config.js</code> eintragen.
+        </p>
+
+        <p class="footer-note">
+          <a href="https://recalled-partner.onrender.com">Partner-Portal</a>
+        </p>
+      </div>
+    </main>
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const cfg = window.RECALLED_APP || {};
+        const appStore = (cfg.appStoreUrl || "").trim();
+        const playStore = (cfg.playStoreUrl || "").trim();
+        let visible = 0;
+
+        const appLink = document.getElementById("app-store-link");
+        const playLink = document.getElementById("play-store-link");
+        const hint = document.getElementById("setup-hint");
+
+        if (appStore && appStore !== "#") {
+          appLink.href = appStore;
+          appLink.hidden = false;
+          appLink.rel = "noopener noreferrer";
+          visible += 1;
+        }
+
+        if (playStore && playStore !== "#") {
+          playLink.href = playStore;
+          playLink.hidden = false;
+          playLink.rel = "noopener noreferrer";
+          visible += 1;
+        }
+
+        if (!visible) {
+          hint.hidden = false;
+        }
+      });
+    </script>
+  </body>
+</html>
