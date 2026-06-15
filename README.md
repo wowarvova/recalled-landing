@@ -13,16 +13,13 @@ Dann [http://localhost:8080](http://localhost:8080) öffnen.
 
 ## App-Links eintragen
 
-In `config.js`:
+In `config.js` nur den **App Store** Link eintragen:
 
 ```js
 window.RECALLED_APP = {
   appStoreUrl: "https://apps.apple.com/app/idDEINE_APP_ID",
-  playStoreUrl: "https://play.google.com/store/apps/details?id=de.recalled.app",
 };
 ```
-
-Nur die Stores eintragen, die es gibt — leere Felder werden ausgeblendet.
 
 ## Auf Render deployen
 

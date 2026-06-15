@@ -1,5 +1,4 @@
-// App-Store-Links hier eintragen (vor Deploy oder auf Render im Repo anpassen).
+// Apple Campaign Link oder App-Store-URL hier eintragen.
 window.RECALLED_APP = {
   appStoreUrl: "",
-  playStoreUrl: "",
 };
